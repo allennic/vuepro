@@ -25,7 +25,8 @@
         data(){
             return {
                 username:"",
-                userpass:""
+                userpass:"",
+                isadmin:false
             }
         },
         methods:{
