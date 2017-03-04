@@ -24,4 +24,11 @@ let param = {
 
  }
 
-new Vue(param);
+let myvue=new Vue(param);
+
+window.onhashchange=function(){
+    if(window.location.hash=="#admin")
+        myvue.$children[0].$data.isadmin=true;
+    else
+        myvue.$children[0].$data.isadmin=false;
+}

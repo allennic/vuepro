@@ -1,6 +1,7 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div id="user" class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">用户登录</h2>
+        <h2 class="text-center" v-if="isadmin" >管理员登录</h2>
+        <h2 class="text-center" v-else="">用户登录</h2>
         <form class="form-horizontal" role="form">
             <user-name placeholder="输入你的用户名" ref="uname"
                        v-on:updateUserName="setUserName"  ></user-name>
@@ -35,6 +36,7 @@
             show()
             {
                 alert(this.username);
+                // this.isadmin=!this.isadmin;
             }
         },
         components:{
