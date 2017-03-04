@@ -3,9 +3,13 @@ import Vue from "vue";
 import userlogin from  "./../compoments/user-login.vue";
 import pagenav from "./../compoments/page-nav.vue";
 import newslist from "./../compoments/news-list.vue";
+import newsdetail from "./../compoments/news-detail.vue";
 import VueRouter from 'vue-router';
+import VueResource from "vue-resource";
+
 
 Vue.use(VueRouter);
+Vue.use(VueResource);//ajax插件
 
 // let me_name={
 //     template:'<div  id="me">我的名字是shenyi{{name}}</div>',
@@ -16,8 +20,10 @@ Vue.use(VueRouter);
 
 const routerConfig = new VueRouter({
     routes:[
-        { path: '/news', component: newslist },
-        { path: '/login', component: userlogin }
+        { path: '/', component: newslist },
+        { path: '/news', component: newslist,name:"newslist"},
+        { path: '/news/:newsid', component: newsdetail,name:"newsdetail"},
+        { path: '/login', component: userlogin,name:"userlogin"}
     ]
 })
 
