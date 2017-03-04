@@ -13,7 +13,7 @@
             <tbody>
                <tr v-for="fav in getFavs">
                <td>{{fav.class1}}</td>
-               <td><a href='#'>{{fav.class2}}</a></td>
+               <td><a href='#' v-for="code in fav.class2">{{code}}</a></td>
              </tr>
            </tbody>
            </table>
@@ -22,7 +22,7 @@
     </div>
 </template>
 <style>
-     
+    .table td a{width:25px;margin-left:5px;}
 </style>
 <script>
      
@@ -32,8 +32,8 @@
             return{
                 inputText:"",
                 favs:[
-                    {'class1':'web开发类',"class2":"js"},
-                    {'class1':'编程类',"class2":"java"},
+                    {'class1':'web开发类',"class2":["js","html","css"]},
+                    {'class1':'编程类',"class2":["java","php","python"]},
                 ]
             }
         },
@@ -48,7 +48,9 @@
             getFavs()
             {
                 return this.favs.filter(function(abc){
-                    if(abc.class2.indexOf(this.inputText)>=0)
+                    if(abc.class2.filter(function(code){
+                                            return code.indexOf(this.inputText)>=0
+                                        }.bind(this)).length>0)
                     {
                         return true;
                     }
