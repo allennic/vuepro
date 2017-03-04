@@ -4,10 +4,9 @@
         <h2 class="text-center" v-else>用户登录</h2>
 
         <form class="form-horizontal" role="form">
-            <user-name placeholder="输入你的用户名" ref="uname"
-                       v-on:childChange="setValue"  ></user-name>
+            <user-name placeholder="输入你的用户名" ref="uname"></user-name>
             <user-pass></user-pass>
-            <user-area v-on:childChange="setValue"></user-area>
+            <user-area></user-area>
             <user-submit></user-submit>
             <input type="button" value="父组件测试" v-on:click="show"/>
         </form>
@@ -25,6 +24,11 @@
     import usersubmit from "./user/user-submit.vue";
     import userarea from "./user/user-area.vue";
     export default{
+        mounted(){
+            this.$children.forEach(function(cc){
+                cc.$on("childChange",this.setValue)
+            }.bind(this))
+        },
         data(){
             return {
                 username:"",
