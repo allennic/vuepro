@@ -11,7 +11,7 @@
                   类别2</th>
                </thead>
             <tbody>
-               <tr v-for="fav in favs">
+               <tr v-for="fav in getFavs">
                <td>{{fav.class1}}</td>
                <td><a href='#'>{{fav.class2}}</a></td>
              </tr>
@@ -47,7 +47,7 @@
         computed:{
             getFavs()
             {
-                this.favs.filter(function(abc){
+                return this.favs.filter(function(abc){
                     if(abc.class2.indexOf(this.inputText)>=0)
                     {
                         return true;
