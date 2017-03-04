@@ -7,6 +7,7 @@
             <user-name placeholder="输入你的用户名" ref="uname"></user-name>
             <user-pass></user-pass>
             <user-area></user-area>
+            <user-fav></user-fav>
             <user-submit></user-submit>
             <input type="button" value="父组件测试" v-on:click="show"/>
         </form>
@@ -23,6 +24,7 @@
     import userpass from "./user/user-pass.vue";
     import usersubmit from "./user/user-submit.vue";
     import userarea from "./user/user-area.vue";
+    import userfavs from "./user/user-favs.vue";
     export default{
         mounted(){
             this.$children.forEach(function(cc){
@@ -58,7 +60,8 @@
             'user-name':username,
             'user-submit':usersubmit,
             'user-pass':userpass,
-            'user-area':userarea
+            'user-area':userarea,
+            "user-fav":userfavs
         }
     }
 </script>
