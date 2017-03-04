@@ -13,7 +13,7 @@
             <tbody>
                <tr v-for="fav in getFavs">
                <td>{{fav.class1}}</td>
-               <td><a href='#' v-for="code in fav.class2">{{code}}</a></td>
+               <td><a href='#' v-for="code in filterClass2(fav.class2)">{{code}}</a></td>
              </tr>
            </tbody>
            </table>
@@ -42,6 +42,12 @@
             {
                 if(this.inputText=="") return false;
                 return true;
+            },
+            filterClass2(class2)
+            {
+                return class2.filter(function(item){
+                    return item.indexOf(this.inputText)>=0;
+                }.bind(this));
             }
         },
         computed:{
