@@ -19,10 +19,15 @@ Vue.use(VueResource);//ajax插件
 // }
 
 const userlogin=r=>{
- r(require("./../compoments/user-login.vue"));
+    require.ensure([],()=>{
+        r(require("./../compoments/user-login.vue"));
+ },"vuecs")
+
 };
 const newslist=b=>{
- b(require("./../compoments/news-list.vue"));
+    require.ensure([],()=>{
+        b(require("./../compoments/news-list.vue"));
+ },"vuecs")
 };
 
 const routerConfig = new VueRouter({
