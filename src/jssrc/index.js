@@ -1,8 +1,8 @@
 import Vue from "vue";
 
-import userlogin from  "./../compoments/user-login.vue";
+//import userlogin from  "./../compoments/user-login.vue";
 import pagenav from "./../compoments/page-nav.vue";
-import newslist from "./../compoments/news-list.vue";
+//import newslist from "./../compoments/news-list.vue";
 import newsdetail from "./../compoments/news-detail.vue";
 import VueRouter from 'vue-router';
 import VueResource from "vue-resource";
@@ -17,6 +17,13 @@ Vue.use(VueResource);//ajax插件
 //         return {name:"shenyi"}
 //     }
 // }
+
+const userlogin=r=>{
+ r(require("./../compoments/user-login.vue"));
+};
+const newslist=b=>{
+ b(require("./../compoments/news-list.vue"));
+};
 
 const routerConfig = new VueRouter({
     routes:[
