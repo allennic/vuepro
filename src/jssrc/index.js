@@ -7,9 +7,12 @@ import newsdetail from "./../compoments/news-detail.vue";
 import VueRouter from 'vue-router';
 import VueResource from "vue-resource";
 
+import shenyi from "./../compoments/shenyi";
+
 
 Vue.use(VueRouter);
 Vue.use(VueResource);//ajax插件
+Vue.use(shenyi);
 
 // let me_name={
 //     template:'<div  id="me">我的名字是shenyi{{name}}</div>',

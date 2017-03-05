@@ -4,7 +4,8 @@
             <label   class="col-sm-2 control-label">用户名:</label>
             <div class="col-sm-10">
                 <input type="text" v-model="username"
-                       class="form-control"  v-on:change="userNameChange" :placeholder="placeholder"  />
+                       v-uname="showLabel" class="form-control"  v-on:change="userNameChange" :placeholder="placeholder"  />
+                <label v-if="showErrorLabel" class="label label-danger">用户名不合法</label>
 
             </div>
         </div>
@@ -21,10 +22,18 @@
         props:['placeholder'],
         data:function(){
             return {
-                username:""
+                username:"",
+                showErrorLabel:false
             }
         },
         methods:{
+            showLabel()
+            {
+                if(this.checkUserName(this.username))
+                    this.showErrorLabel=false;
+                else
+                    this.showErrorLabel=true;
+            },
             userNameChange()
             {
                 this.$emit("childChange","username",this.username)
