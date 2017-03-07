@@ -2,7 +2,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="button" v-on:click="test" class="btn btn-success">提交</button>
+            <button type="button" v-on:click="submit" class="btn btn-success">提交</button>
         </div>
     </div>
 
@@ -15,9 +15,10 @@
     export default{
 
         methods:{
-            test()
+            submit()
             {
-                alert(this.$parent.$data.username)
+                //alert(this.$parent.$data.username)
+                this.$store.commit("showUserName");
 
             }
         }

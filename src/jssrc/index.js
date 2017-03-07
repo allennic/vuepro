@@ -9,10 +9,26 @@ import VueResource from "vue-resource";
 
 import shenyi from "./../compoments/shenyi";
 
+import Vuex from "vuex";
+Vue.use(Vuex);
+
 
 Vue.use(VueRouter);
 Vue.use(VueResource);//ajax插件
 Vue.use(shenyi);
+
+const vuex_store=new Vuex.Store({
+    state:{
+        user_name:""
+    },
+    mutations:{
+        showUserName(state)
+        {
+            alert(state.user_name)
+        }
+    }
+
+})
 
 // let me_name={
 //     template:'<div  id="me">我的名字是shenyi{{name}}</div>',
@@ -45,6 +61,7 @@ const routerConfig = new VueRouter({
 Vue.component('page-nav', pagenav)
 let myvue=new Vue({
     el:".container",
+    store:vuex_store,
     router:routerConfig
 });
 // let param = {
