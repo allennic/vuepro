@@ -4,8 +4,37 @@
             <label   class="col-sm-2 control-label">用户名:</label>
             <div class="col-sm-10">
                 <input type="text" v-model="username"
-                       v-uname="showLabel" class="form-control"  v-on:change="userNameChange" :placeholder="placeholder"  />
+                       class="form-control"  v-on:change="userNameChange" :placeholder="placeholder"  />
 
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label   class="col-sm-2 control-label">测试:</label>
+            <div class="col-sm-10">
+                <shenyi-text></shenyi-text>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label   class="col-sm-2 control-label">测试:</label>
+            <div class="col-sm-10">
+                <shenyi-text></shenyi-text>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label   class="col-sm-2 control-label">测试:</label>
+            <div class="col-sm-10">
+                <shenyi-text></shenyi-text>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label   class="col-sm-2 control-label">测试:</label>
+            <div class="col-sm-10">
+                <shenyi-text></shenyi-text>
 
             </div>
         </div>

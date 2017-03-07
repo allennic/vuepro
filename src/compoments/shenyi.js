@@ -2,6 +2,25 @@
 export default {
    install(Vue)
    {
+       Vue.component("shenyi-text",{
+           template:" <div><input type='text' class='form-control'  v-model='textValue'/>" +
+           "<label v-if='showErrorLable' class='label label-danger'>用户名不合法</label></div>",
+           data(){
+               return {
+                   textValue:""
+               }
+           },
+           computed:{
+               showErrorLable()
+               {
+                   if(/\w{6,20}/.test(this.textValue) || this.textValue=="") {
+                       return false;
+                   }
+                   return true;
+               }
+           }
+       })
+
         Vue.prototype.checkUserName=(value)=>{
             if(value=="") return true;//如果没填，默认不显示
             if(/\w{6,20}/.test(value))
