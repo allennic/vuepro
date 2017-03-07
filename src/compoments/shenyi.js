@@ -10,27 +10,46 @@ export default {
             }
             return false;
         }
-        Vue.directive("uname",{
+       Vue.prototype.errorLabel=null;
+       Vue.prototype.hasError=false;
+        Vue.directive("uname",{    //自定义指令v-uname
             bind(){
+                let error=Vue.extend({
+                    template:'<label class="label label-danger">用户名不合法</label>'
+                });
+                Vue.errorLabel=(new error()).$mount().$el;
                 console.log("begin");
             },
             update(el,binding,vnode)
             {
 
                 //把业务写在插件里
-              /*  if(/\w{6,20}/.test(el.value))
+                if(/\w{6,20}/.test(el.value))
                 {
-                    vnode.context[binding.expression]=false;
+                    //vnode.context[binding.expression]=false;
+                    if(Vue.hasError) {
+                        el.parentNode.removeChild(Vue.errorLabel)
+                        Vue.hasError=!Vue.hasError;
+                    }
                 }
                 else
-                    vnode.context[binding.expression]=true;//显示错误标签
-                console.log(el);
-                console.log(binding);
-                console.log(vnode);*/
+                {
+                    if(!Vue.hasError)
+                    {
+                        el.parentNode.appendChild(Vue.errorLabel);//显示 错误label
+                        Vue.hasError=!Vue.hasError;
+                    }
+                }
+
+
+                    //vnode.context[binding.expression]=true;//显示错误标签
+                // console.log(el);
+                // console.log(binding);
+                // console.log(vnode);
 
 
                 //业务写在组件里
-                vnode.context[binding.expression]();
+                //vnode.context[binding.expression]();  //绑定showErrorLabel
             }
         })
    }

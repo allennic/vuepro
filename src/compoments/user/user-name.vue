@@ -5,7 +5,7 @@
             <div class="col-sm-10">
                 <input type="text" v-model="username"
                        v-uname="showLabel" class="form-control"  v-on:change="userNameChange" :placeholder="placeholder"  />
-                <label v-if="showErrorLabel" class="label label-danger">用户名不合法</label>
+
 
             </div>
         </div>
