@@ -17,8 +17,11 @@ Vue.use(VueRouter);
 Vue.use(VueResource);//ajax插件
 Vue.use(shenyi);
 
+import UserModule from "./../store/modules/UserModule";
+import NewsModule from "./../store/modules/NewsModule";
+
 const vuex_store=new Vuex.Store({
-    state:{
+    /*state:{
         user_name:"",
         newslist:[],
         newsdetail:{}
@@ -51,7 +54,12 @@ const vuex_store=new Vuex.Store({
 
 
         }
-    },
+    }*/
+
+    modules: {
+        users: UserModule,
+        news: NewsModule
+    }
 
 })
 

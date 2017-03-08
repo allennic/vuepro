@@ -19,11 +19,11 @@
      
     export default{
         created(){
-            if(this.$store.state.newslist.length==0)
+            if(this.$store.state.news.newslist.length==0)
             {
                 this.$http.get("http://localhost:9902/newslist.php")
                         .then(function(res){
-                            this.$store.state.newslist=res.body;
+                            this.$store.state.news.newslist=res.body;
                         },function(res){})
             }
 
