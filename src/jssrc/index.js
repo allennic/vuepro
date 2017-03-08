@@ -19,13 +19,22 @@ Vue.use(shenyi);
 
 const vuex_store=new Vuex.Store({
     state:{
-        user_name:""
+        user_name:"",
+        newslist:[]
     },
     mutations:{
         showUserName(state)
         {
             alert(state.user_name)
         }
+    },
+    getters:{
+        getNews(state){
+            return state.newslist.filter(function(news){
+                return !news.isdeleted;
+            })
+        }
+
     }
 
 })
