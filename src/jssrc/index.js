@@ -20,12 +20,17 @@ Vue.use(shenyi);
 const vuex_store=new Vuex.Store({
     state:{
         user_name:"",
-        newslist:[]
+        newslist:[],
+        newsdetail:{}
     },
     mutations:{
         showUserName(state)
         {
             alert(state.user_name)
+        },
+        setAgree(state,agreeNum)
+        {
+            state.newsdetail.agree=agreeNum;
         }
     },
     getters:{
@@ -34,8 +39,19 @@ const vuex_store=new Vuex.Store({
                 return !news.isdeleted;
             })
         }
+    },
+    actions:{
+        agree(context,_newsid)
+        {
+            //在这进行ajax请求，获取 点赞后的agree字段属性值
+            Vue.http.post("http://localhost:9903/test/news.php",
+                {newsid:_newsid},{emulateJSON:true}).then(function(res){
+                context.commit("setAgree",res.body.agree)
+            },function(){})
 
-    }
+
+        }
+    },
 
 })
 
