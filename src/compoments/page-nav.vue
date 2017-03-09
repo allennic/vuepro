@@ -11,6 +11,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#/login">登录</a></li>
                     <li><a href="#/news">热点新闻</a></li>
+                    <li><a href="#/eltable">Element测试table</a></li>
 
                 </ul>
 

@@ -1,4 +1,7 @@
 import Vue from "vue";
+import ElementUI from 'element-ui'
+import eltable from "./../compoments/el-table.vue"
+import 'element-ui/lib/theme-default/index.css'
 
 //import userlogin from  "./../compoments/user-login.vue";
 import pagenav from "./../compoments/page-nav.vue";
@@ -12,7 +15,7 @@ import shenyi from "./../compoments/shenyi";
 import Vuex from "vuex";
 Vue.use(Vuex);
 
-
+Vue.use(ElementUI)
 Vue.use(VueRouter);
 Vue.use(VueResource);//ajax插件
 Vue.use(shenyi);
@@ -87,7 +90,8 @@ const routerConfig = new VueRouter({
         { path: '/', component: newslist },
         { path: '/news', component: newslist,name:"newslist"},
         { path: '/news/:newsid', component: newsdetail,name:"newsdetail"},
-        { path: '/login', component: userlogin,name:"userlogin"}
+        { path: '/login', component: userlogin,name:"userlogin"},
+        { path: '/eltable', component: eltable,name:"eltable"}
     ]
 })
 
