@@ -1,6 +1,8 @@
 import Vue from "vue";
 import ElementUI from 'element-ui'
 import eltable from "./../compoments/el-table.vue"
+import eleindex from "./../compoments/elementui/ele-index.vue";
+import elhot from "./../compoments/elementui/ele-hot.vue";
 import 'element-ui/lib/theme-default/index.css'
 
 //import userlogin from  "./../compoments/user-login.vue";
@@ -22,6 +24,7 @@ Vue.use(shenyi);
 
 import UserModule from "./../store/modules/UserModule";
 import NewsModule from "./../store/modules/NewsModule";
+import EleModule from "./../store/modules/EleModule";
 
 const vuex_store=new Vuex.Store({
     /*state:{
@@ -61,7 +64,8 @@ const vuex_store=new Vuex.Store({
 
     modules: {
         users: UserModule,
-        news: NewsModule
+        news: NewsModule,
+        ele: EleModule
     }
 
 })
@@ -91,7 +95,12 @@ const routerConfig = new VueRouter({
         { path: '/news', component: newslist,name:"newslist"},
         { path: '/news/:newsid', component: newsdetail,name:"newsdetail"},
         { path: '/login', component: userlogin,name:"userlogin"},
-        { path: '/eltable', component: eltable,name:"eltable"}
+        { path: '/eltable', component: eltable,name:"eltable"},
+        { path: '/elindex', component: eleindex,name:"eleindex",
+            children:[
+                {path:"hot",component:elhot,name:"elhot"}
+            ]
+        }
     ]
 })
 
