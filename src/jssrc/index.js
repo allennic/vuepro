@@ -1,22 +1,14 @@
 import Vue from "vue";
 import ElementUI from 'element-ui'
-import eltable from "./../compoments/el-table.vue"
-import eleindex from "./../compoments/elementui/ele-index.vue";
-import elhot from "./../compoments/elementui/ele-hot.vue";
+
 import 'element-ui/lib/theme-default/index.css'
-
-//import userlogin from  "./../compoments/user-login.vue";
 import pagenav from "./../compoments/page-nav.vue";
-//import newslist from "./../compoments/news-list.vue";
-import newsdetail from "./../compoments/news-detail.vue";
-import VueRouter from 'vue-router';
 import VueResource from "vue-resource";
-
 import shenyi from "./../compoments/shenyi";
-
 import Vuex from "vuex";
-Vue.use(Vuex);
+import VueRouter from 'vue-router'
 
+Vue.use(Vuex);
 Vue.use(ElementUI)
 Vue.use(VueRouter);
 Vue.use(VueResource);//ajax插件
@@ -25,6 +17,7 @@ Vue.use(shenyi);
 import UserModule from "./../store/modules/UserModule";
 import NewsModule from "./../store/modules/NewsModule";
 import EleModule from "./../store/modules/EleModule";
+import EleUserInfoModule from "./../store/modules/EleUserInfo"
 
 const vuex_store=new Vuex.Store({
     /*state:{
@@ -65,7 +58,8 @@ const vuex_store=new Vuex.Store({
     modules: {
         users: UserModule,
         news: NewsModule,
-        ele: EleModule
+        ele: EleModule,
+        userinfo: EleUserInfoModule
     }
 
 })
@@ -77,19 +71,8 @@ const vuex_store=new Vuex.Store({
 //     }
 // }
 
-const userlogin=r=>{
-    require.ensure([],()=>{
-        r(require("./../compoments/user-login.vue"));
- },"vuecs")
 
-};
-const newslist=b=>{
-    require.ensure([],()=>{
-        b(require("./../compoments/news-list.vue"));
- },"vuecs")
-};
-
-const routerConfig = new VueRouter({
+/*const routerConfig = new VueRouter({
     routes:[
         { path: '/', component: newslist },
         { path: '/news', component: newslist,name:"newslist"},
@@ -102,8 +85,8 @@ const routerConfig = new VueRouter({
             ]
         }
     ]
-})
-
+})*/
+import {routerConfig} from "./config";
 Vue.component('page-nav', pagenav)
 let myvue=new Vue({
     el:".container",

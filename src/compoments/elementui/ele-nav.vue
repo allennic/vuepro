@@ -1,6 +1,7 @@
 <template>
     <el-menu theme="dark" default-active="1" class="el-menu-demo" mode="horizontal"  :router="true">
-            <el-menu-item index="/elindex/hot">精选</el-menu-item>
+        <el-menu-item index="/elindex/hot">精选</el-menu-item>
+        <el-menu-item index="/elindex/userinfo">用户资料</el-menu-item>
         <el-submenu index="2">
             <template slot="title">健身</template>
             <el-menu-item index="2-1">健美</el-menu-item>
